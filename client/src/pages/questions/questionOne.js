@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { AddressForm } from './questionTwo'
 
-const houseQuestion = () => {
-    const [selectedAnswer, setSelectedAnswer ] = useState('');
+export const bedroomQuestion = () => {
+    const [selectedAnswer, setSelectedAnswer ] = useState(null);
+    const [showAddressFrorm, setShowAddressForm] = useState(false);
 
     const handleAnswerSelection = (answer) => {
         setSelectedAnswer(answer);
@@ -24,9 +26,11 @@ const houseQuestion = () => {
             <h3>How many bedrooms is your house?</h3>
             <div className="answerBtn">{renderAnswerButtons()}</div>
             {selectedAnswer && <p> You Selected: {selectedAnswer}</p>}
-        </div>
-    );
+            </div>
+            
+    )
+        
 
 };
 
-export default houseQuestion;
+
