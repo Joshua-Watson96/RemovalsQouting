@@ -7,7 +7,8 @@ const landingPage = () => {
             <h1 className="headingTitle"> Welcome to my Quoting app.</h1>
             <div>
                 <button className="startBtn"> Free Quote
-                <Link to="/questions"></Link></button> </div>
+                <Link to="/questions"></Link></button> 
+                </div>
 
         </header>
         
