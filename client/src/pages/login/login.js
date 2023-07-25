@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Link } from "react-router-dom"
+import { Link, redirect } from 'react-router-dom';
 import { LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth'; 
 
-
-
-function Login() {
+export function Login() {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
 
@@ -30,6 +29,13 @@ function Login() {
     });
   };
 
+  
+  const isLoggedIn = Auth.loggedIn();
+
+  if (isLoggedIn) {
+    return <redirect to="/landing" />;
+  }
+
   return (
     <div>
       <h2>Please login or sign-up to access the free quote app!</h2>
@@ -38,27 +44,31 @@ function Login() {
           <label>Username:</label>
           <input
             type="text"
-            value={username}
+            name="email"
+            value={formState.email}
             onChange={handleChange}
-            placeholder='Please enter Username!'
+            placeholder="Please enter Username!"
           />
         </div>
         <div>
           <label>Password:</label>
           <input
             type="password"
-            value={password}
+            name="password"
+            value={formState.password}
             onChange={handleChange}
-            placeholder='Please enter password!'
+            placeholder="Please enter password!"
           />
         </div>
-        <button type="submit" id='loginBtn'>
-          <Link to="/landing">Login</Link></button>
-        <button type="submit" id='signUpBtn'>
-          <Link to="/signup">Sign Up!</Link></button>
+        <button type="submit" id="loginBtn">
+          Login
+        </button>
+        <button type="button" id="signUpBtn">
+          <Link to="/signup">Sign Up!</Link>
+        </button>
       </form>
     </div>
   );
-};
+}
 
-export default Login;
+

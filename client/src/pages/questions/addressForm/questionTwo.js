@@ -37,10 +37,9 @@ export const AddressForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission here with the pickupAddresses and dropOffAddresses arrays
-    // e.g., send the addresses to the server or do other processing
+   
     setPickupAddresses(['']);
-    setDropOffAddresses(['']); // Reset the input fields after submission
+    setDropOffAddresses(['']); 
   };
 
   return (
