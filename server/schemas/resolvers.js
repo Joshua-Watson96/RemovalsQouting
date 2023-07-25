@@ -7,6 +7,7 @@ const resolvers = {
     currentUser: (_, __, { currentUser }) => {
       return currentUser; 
     },
+    
   },
 
   Mutation: {

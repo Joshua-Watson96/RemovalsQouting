@@ -4,9 +4,9 @@ import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import  { Login } from "./pages/login/login"
 import { Signup } from "./pages/login/signup"
 import { LandingPage } from "./pages/landing/landingPage";
-import { BedroomQuestion} from "./pages/questions/questionOne";
-import { AddressForm  } from "./pages/questions/questionTwo";
-import { DoubleStoreyQuestion } from "./pages/questions/questionThree";
+import { BedroomQuestion} from "./pages/questions/bedroomQuestion/questionOne";
+import { AddressForm  } from "./pages/questions/addressForm/questionTwo";
+import { DoubleStoreyQuestion } from "./pages/questions/doubleStoreyQuestion/questionThree";
 
 
 export default function App() {
