@@ -9,8 +9,14 @@ const typeDefs = gql`
   }
 
   type User {
-    _id: ID
-    name: String
+    _id: ID!
+    username: String!
+    password: String!
+  }
+
+  type AuthPayload {
+    token: String!
+    user: User!
   }
 
   type Quote {
@@ -21,10 +27,17 @@ const typeDefs = gql`
     removalQuote: Float
   }
 
+  type Mutation {
+    signup(username: String!, password: String!): AuthPayload
+    login(username: String!, password: String!): AuthPayload
+  }
+
   type Query {
+    currentUser: User
     getUser(_id: ID!): User
     getQuote(_id: ID!): Quote
   }
-`;
+
+  `;
 
 module.exports = typeDefs;
