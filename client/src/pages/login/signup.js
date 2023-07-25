@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
-export function Signup() {
+export function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
 
@@ -31,30 +31,54 @@ export function Signup() {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
+    <div className="container my-1">
+      <Link to="/">← Go to Login</Link>
+
+      <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
-        <div>
-          <label>Username:</label>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="firstName">First Name:</label>
           <input
-            type="text"
-            
+            placeholder="First"
+            name="firstName"
+            type="firstName"
+            id="firstName"
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label>Password:</label>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="lastName">Last Name:</label>
           <input
+            placeholder="Last"
+            name="lastName"
+            type="lastName"
+            id="lastName"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="email">Email:</label>
+          <input
+            placeholder="youremail@test.com"
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="pwd">Password:</label>
+          <input
+            placeholder="******"
+            name="password"
             type="password"
-            
+            id="pwd"
             onChange={handleChange}
           />
         </div>
-        <button type="submit">
-          <Link to="/">Sign Up!</Link></button>
-          <button type='submit'>
-            <Link to="/">Go back</Link>
-          </button>
+        <div className="flex-row flex-end">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );

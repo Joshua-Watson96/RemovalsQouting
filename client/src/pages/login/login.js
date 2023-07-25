@@ -4,7 +4,7 @@ import { Link, redirect } from 'react-router-dom';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth'; 
 
-export function Login() {
+export function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
 
@@ -37,35 +37,39 @@ export function Login() {
   }
 
   return (
-    <div>
-      <h2>Please login or sign-up to access the free quote app!</h2>
+    <div className="container my-1">
+      <Link to="/signup">← Go to Signup</Link>
+
+      <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
-        <div>
-          <label>Username:</label>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="email">Email address:</label>
           <input
-            type="text"
+            placeholder="youremail@test.com"
             name="email"
-            value={formState.email}
+            type="email"
+            id="email"
             onChange={handleChange}
-            placeholder="Please enter Username!"
           />
         </div>
-        <div>
-          <label>Password:</label>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="pwd">Password:</label>
           <input
-            type="password"
+            placeholder="******"
             name="password"
-            value={formState.password}
+            type="password"
+            id="pwd"
             onChange={handleChange}
-            placeholder="Please enter password!"
           />
         </div>
-        <button type="submit" id="loginBtn">
-          Login
-        </button>
-        <button type="button" id="signUpBtn">
-          <Link to="/signup">Sign Up!</Link>
-        </button>
+        {error ? (
+          <div>
+            <p className="error-text">The provided credentials are incorrect</p>
+          </div>
+        ) : null}
+        <div className="flex-row flex-end">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );

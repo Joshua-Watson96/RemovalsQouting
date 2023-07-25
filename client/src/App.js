@@ -6,7 +6,7 @@ import { Signup } from "./pages/login/signup"
 import { LandingPage } from "./pages/landing/landingPage";
 import { BedroomQuestion} from "./pages/questions/bedroomQuestion/questionOne";
 import { AddressForm  } from "./pages/questions/addressForm/questionTwo";
-import { DoubleStoreyQuestion } from "./pages/questions/doubleStoreyQuestion/questionThree";
+import { DoubleStoreyQuestion } from "./pages/questions/accessQuestion/questionThree";
 import { EmailForm } from "./pages/ending/endingPage"
 
 
