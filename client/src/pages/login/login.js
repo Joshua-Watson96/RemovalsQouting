@@ -1,35 +1,33 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { gql } from '@apollo/client';
 import { Link } from "react-router-dom"
+import { LOGIN } from '../../utils/mutations';
 
-const LOGIN_MUTATION = gql`
-  mutation Login($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
-      token
-      user {
-        id
-        username
-      }
-    }
-  }
-`;
 
-export const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
-  const [login] = useMutation(LOGIN_MUTATION);
+function Login() {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN);
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
     try {
-      const { data } = await login({ variables: { username, password } });
-      localStorage.setItem('token', data.login.token);
-      window.location.reload();
-    } catch (error) {
-      console.error(error.message);
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
     }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
   return (
@@ -41,7 +39,7 @@ export const Login = () => {
           <input
             type="text"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={handleChange}
             placeholder='Please enter Username!'
           />
         </div>
@@ -50,7 +48,7 @@ export const Login = () => {
           <input
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handleChange}
             placeholder='Please enter password!'
           />
         </div>
@@ -63,4 +61,4 @@ export const Login = () => {
   );
 };
 
-// export default Login;
+export default Login;
