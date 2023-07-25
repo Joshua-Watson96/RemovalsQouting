@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { gql } from '@apollo/client';
-
+import { Link } from "react-router-dom"
 const SIGNUP_MUTATION = gql`
   mutation Signup($username: String!, $password: String!) {
     signup(username: $username, password: $password) {
@@ -51,7 +51,11 @@ export const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit">
+          <Link to="/">Sign Up!</Link></button>
+          <button type='submit'>
+            <Link to="/">Go back</Link>
+          </button>
       </form>
     </div>
   );

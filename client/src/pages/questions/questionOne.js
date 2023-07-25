@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { AddressForm } from './questionTwo'
+import { Link } from "react-router-dom";
 
-export const bedroomQuestion = () => {
+
+export const BedroomQuestion = () => {
     const [selectedAnswer, setSelectedAnswer ] = useState(null);
-    const [showAddressFrorm, setShowAddressForm] = useState(false);
+    
 
     const handleAnswerSelection = (answer) => {
         setSelectedAnswer(answer);
@@ -26,11 +27,18 @@ export const bedroomQuestion = () => {
             <h3>How many bedrooms is your house?</h3>
             <div className="answerBtn">{renderAnswerButtons()}</div>
             {selectedAnswer && <p> You Selected: {selectedAnswer}</p>}
-            </div>
-            
+
+            <button className="nextQBtn">
+                <Link to="/landing/questionTwo">Next question</Link>
+            </button>
+
+        </div>
+           
     )
         
 
 };
+
+// export default BedroomQuestion
 
 

@@ -54,7 +54,8 @@ export const Login = () => {
             placeholder='Please enter password!'
           />
         </div>
-        <button type="submit" id='loginBtn'>Login</button>
+        <button type="submit" id='loginBtn'>
+          <Link to="/landing">Login</Link></button>
         <button type="submit" id='signUpBtn'>
           <Link to="/signup">Sign Up!</Link></button>
       </form>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { questionFour } from './questionFour'
 
-const DoubleStoreyQuestion = ({ onNextQuestion }) => {
+
+export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
   const [isDoubleStorey, setIsDoubleStorey] = useState(false);
   const [additionalDetails, setAdditionalDetails] = useState('');
 
@@ -36,7 +36,7 @@ const DoubleStoreyQuestion = ({ onNextQuestion }) => {
           No
         </button>
       </div>
-      {/* Conditionally render the "Provide further details" section */}
+      
       {isDoubleStorey && (
         <div>
           <label htmlFor="additionalDetails">Provide further details:</label>
@@ -52,19 +52,18 @@ const DoubleStoreyQuestion = ({ onNextQuestion }) => {
   );
 };
 
-const HouseRemovalQuote = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(1);
+// const HouseRemovalQuote = () => {
+//   const [currentQuestion, setCurrentQuestion] = useState(1);
 
-  const handleNextQuestion = () => {
-    setCurrentQuestion(currentQuestion + 1);
-  };
+//   const handleNextQuestion = () => {
+//     setCurrentQuestion(currentQuestion + 1);
+//   };
 
-  return (
-    <div>
-      {currentQuestion === 1 && <DoubleStoreyQuestion onNextQuestion={handleNextQuestion} />}
-      {}
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       {currentQuestion === 1 && <DoubleStoreyQuestion onNextQuestion={handleNextQuestion} />}
+//       {}
+//     </div>
+//   );
+// };
 
-export default HouseRemovalQuote;

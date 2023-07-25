@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { questionThree } from './questionThree';
 
-const AddressForm = () => {
+
+export const AddressForm = () => {
     const [pickupAddress, setPickupAddress] = useState('');
     const [dropOffAddress, setDropOffAddress] = useState('');
     
@@ -41,9 +41,8 @@ const AddressForm = () => {
                     required
                     />
             </div>
-            <button type="submit">Next</button>
+            <button type="submit">Next question</button>
         </form>
     );
 };
 
-export default AddressForm;
