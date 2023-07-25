@@ -1,34 +1,32 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { gql } from '@apollo/client';
 import { Link } from "react-router-dom"
-const SIGNUP_MUTATION = gql`
-  mutation Signup($username: String!, $password: String!) {
-    signup(username: $username, password: $password) {
-      token
-      user {
-        id
-        username
-      }
-    }
-  }
-`;
+import { ADD_USER } from '../../utils/mutations';
 
-export const Signup = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+function Signup() {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [addUser] = useMutation(ADD_USER);
 
-  const [signup] = useMutation(SIGNUP_MUTATION);
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const mutationResponse = await addUser({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
+  };
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await signup({ variables: { username, password } });
-      localStorage.setItem('token', data.signup.token);
-      window.location.reload(); 
-    } catch (error) {
-      console.error(error.message);
-    }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
   return (
@@ -40,7 +38,7 @@ export const Signup = () => {
           <input
             type="text"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -48,7 +46,7 @@ export const Signup = () => {
           <input
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handleChange}
           />
         </div>
         <button type="submit">
@@ -61,4 +59,5 @@ export const Signup = () => {
   );
 };
 
+export default Signup;
 
