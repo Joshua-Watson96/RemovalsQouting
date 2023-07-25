@@ -9,7 +9,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
     setIsDoubleStorey(value === 'yes');
     setAdditionalDetails('');
 
-    // Move to the next question when "No" is selected
+   
     if (value === 'no') {
       onNextQuestion();
     }
@@ -25,13 +25,13 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       <div>
         <button
           onClick={() => handleButtonClick('yes')}
-          style={{ background: isDoubleStorey ? 'green' : 'gray' }}
+          
         >
           Yes
         </button>
         <button
           onClick={() => handleButtonClick('no')}
-          style={{ background: !isDoubleStorey ? 'red' : 'gray' }}
+          
         >
           No
         </button>
