@@ -1,22 +1,64 @@
-import { SMTPClient } from 'emailjs';
+// import React, { useState } from 'react';
+// import { SMTPClient } from 'emailjs';
 
-const client = new SMTPClient({
-	user: 'user',
-	password: 'password',
-	host: 'smtp.your-email.com',
-	ssl: true,
-});
+// export const EmailForm = () => {
+//   const [firstName, setFirstName] = useState('');
+//   const [lastName, setLastName] = useState('');
+//   const [email, setEmail] = useState('');
+//   const [mobile, setMobile] = useState('');
 
+//   const handleSendEmail = () => {
+//     const client = new SMTPClient({
+//       user: 'user',
+//       password: 'password',
+//       host: 'smtp.your-email.com',
+//       ssl: true,
+//     });
 
-client.send(
-	{
-		text: 'i hope this works',
-		from: 'you <username@your-email.com>',
-		to: 'someone <someone@your-email.com>, another <another@your-email.com>',
-		cc: 'else <else@your-email.com>',
-		subject: 'testing emailjs',
-	},
-	(err, message) => {
-		console.log(err || message);
-	}
-);
+//     const message = {
+//       text: 'Hello, this is a test email!',
+//       from: `${firstName} ${lastName} <${email}>`,
+//       to: 'recipient@example.com', 
+//       subject: 'Testing emailjs with React',
+//     };
+
+//     client.send(message, (err, message) => {
+//       if (err) {
+//         console.error('Error sending email:', err);
+//       } else {
+//         console.log('Email sent successfully:', message);
+//       }
+//     });
+//   };
+
+//   return (
+//     <div>
+//         <div>
+//             <p>Quote Summary</p>
+//             <p>Quote Estimate</p>
+//         </div>
+//       <label>
+//         First Name:
+//         <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+//       </label>
+//       <br />
+//       <label>
+//         Last Name:
+//         <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+//       </label>
+//       <br />
+//       <label>
+//         Email:
+//         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+//       </label>
+//       <br />
+//       <label>
+//         Mobile Number:
+//         <input type="tel" value={mobile} onChange={(e) => setMobile(e.target.value)} />
+//       </label>
+//       <br />
+//       <button onClick={handleSendEmail}>Send Email</button>
+//     </div>
+//   );
+// };
+

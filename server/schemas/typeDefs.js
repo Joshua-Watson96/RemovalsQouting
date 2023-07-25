@@ -12,6 +12,12 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     password: String!
+    email: String
+  }
+
+  type Auth {
+    token: ID
+    user: User
   }
 
   type AuthPayload {
@@ -27,9 +33,9 @@ const typeDefs = gql`
     removalQuote: Float
   }
 
-  type Mutation {
-    signup(username: String!, password: String!): AuthPayload
-    login(username: String!, password: String!): AuthPayload
+ type Mutation {
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
   }
 
   type Query {

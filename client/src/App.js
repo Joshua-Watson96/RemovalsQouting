@@ -7,6 +7,7 @@ import { LandingPage } from "./pages/landing/landingPage";
 import { BedroomQuestion} from "./pages/questions/bedroomQuestion/questionOne";
 import { AddressForm  } from "./pages/questions/addressForm/questionTwo";
 import { DoubleStoreyQuestion } from "./pages/questions/doubleStoreyQuestion/questionThree";
+import { EmailForm } from "./pages/ending/endingPage"
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
             <Route path='/landing/questionOne' element={<BedroomQuestion />} />
             <Route path="/landing/questionTwo" element={<AddressForm />} />
             <Route path="/landing/questionThree" element={<DoubleStoreyQuestion />} />
+            <Route path="/landing/emailQuote" element={<EmailForm />} />
             </Routes>
         </Router>
     )

@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
   Query: {
@@ -11,27 +12,26 @@ const resolvers = {
   },
 
   Mutation: {
-    signup: async (_, { username, password }) => {
-      const existingUser = await User.findOneAndDelete({ username });
-      if (existingUser) {
-        throw new Error('Username already exists.');
-      }
-      
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const user = new User({ username, password: hashedPassword });
-      await user.save();
-
-      const token = jwt.sign({ userId: user.id}, process.env.JWT_SECRET);
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
 
       return { token, user };
     },
-    login: async (_, { username, password }) => {
-      const user = await User.findOne({ username });
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
       if (!user) {
-        throw new Error('Invalid username or password.');
+        throw new AuthenticationError('Incorrect credentials');
       }
 
-      const token = jwt.sign({userId: user.id }, process.env.JWT_SECRET);
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(user);
 
       return { token, user };
     },
