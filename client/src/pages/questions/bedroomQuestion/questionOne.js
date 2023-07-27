@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Headermain } from "../../heading/heading";
 
 
 export const BedroomQuestion = () => {
@@ -24,6 +25,7 @@ export const BedroomQuestion = () => {
 
     return(
         <div>
+            <Headermain />
             <h3>How many bedrooms is your house?</h3>
             <div className="answerBtn">{renderAnswerButtons()}</div>
             {selectedAnswer && <p> You Selected: {selectedAnswer}</p>}

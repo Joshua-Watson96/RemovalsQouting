@@ -38,8 +38,8 @@ export function Login(props) {
 
   return (
     <div className="container my-1">
-      <Link to="/signup">← Go to Signup</Link>
-
+      
+      <h1>Welcome, please login or signup to gain access to the free quote app.</h1>
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
@@ -68,7 +68,9 @@ export function Login(props) {
           </div>
         ) : null}
         <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+          <button type="submit">Log in!</button>
+          <h3>Don't have an account?</h3>
+          <button><Link to="/signup">Sign up here!</Link></button>
         </div>
       </form>
     </div>

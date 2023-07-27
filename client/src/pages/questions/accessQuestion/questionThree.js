@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Headermain } from '../../heading/heading';
 
 // const [quoteTotal, setqouteTotal] = useState(0);
 
@@ -62,6 +63,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
 
   return (
     <div>
+      <Headermain />
       <h3>Pick Up Address:</h3>
       <div>
         <button onClick={() => handlePickUpStoreyChange('single')}>Single</button>

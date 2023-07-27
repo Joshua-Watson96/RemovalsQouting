@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Headermain } from '../../heading/heading';
 
 export const AddressForm = () => {
   const [pickupAddresses, setPickupAddresses] = useState(['']);
@@ -43,7 +44,9 @@ export const AddressForm = () => {
   };
 
   return (
+    
     <form onSubmit={handleSubmit}>
+      <Headermain />
       {pickupAddresses.map((address, index) => (
         <div key={index}>
           <label className='addQuestion'>

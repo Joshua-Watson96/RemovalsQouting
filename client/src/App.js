@@ -7,7 +7,9 @@ import { LandingPage } from "./pages/landing/landingPage";
 import { BedroomQuestion} from "./pages/questions/bedroomQuestion/questionOne";
 import { AddressForm  } from "./pages/questions/addressForm/questionTwo";
 import { DoubleStoreyQuestion } from "./pages/questions/accessQuestion/questionThree";
-import { EmailForm } from "./pages/ending/endingPage"
+import { FurnishedQuestion } from "./pages/questions/furnishedQuestion/questionFour";
+import { MoveDate } from "./pages/questions/moveDate/questionFive";
+import { QuoteSubmit } from "./pages/ending/endingPage"
 
 
 export default function App() {
@@ -22,7 +24,9 @@ export default function App() {
             <Route path='/landing/questionOne' element={<BedroomQuestion />} />
             <Route path="/landing/questionTwo" element={<AddressForm />} />
             <Route path="/landing/questionThree" element={<DoubleStoreyQuestion />} />
-            <Route path="/landing/emailQuote" element={<EmailForm />} />
+            <Route path="/landing/questionFour" element={<FurnishedQuestion />} />
+            <Route path="/landing/questionFive" element={<MoveDate />} />
+            <Route path="/quoteSubmit" element={<QuoteSubmit />}/>
             </Routes>
         </Router>
     )

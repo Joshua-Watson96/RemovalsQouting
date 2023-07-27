@@ -32,7 +32,7 @@ export function Signup(props) {
 
   return (
     <div className="container my-1">
-      <Link to="/">← Go to Login</Link>
+      
 
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
@@ -77,7 +77,9 @@ export function Signup(props) {
           />
         </div>
         <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+          <button type="submit">Sign up!</button>
+          <h3>Already have an account?</h3>
+         <button> <Link to="/"> Login here</Link></button>
         </div>
       </form>
     </div>
