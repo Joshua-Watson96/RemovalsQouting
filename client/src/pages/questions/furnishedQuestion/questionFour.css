@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .container > div {
+    flex: 1 0 200px; 
+    text-align: center;
+  }
+  
+  .container p {
+    margin-top: 10px;
+  }
+
+  .bigStuff {
+    background-color: orange;
+  }
+  
+  .entireHouse {
+    background-color: lightblue;
+  }
+
+  .fewItems {
+    background-color: wheat;
+  }

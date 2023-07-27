@@ -10,14 +10,14 @@ export const AddressForm = () => {
     const updatedAddresses = [...pickupAddresses];
     updatedAddresses[index] = event.target.value;
     setPickupAddresses(updatedAddresses);
-    localStorage.setItem("pickUpAddress", JSON.stringify(pickupAddresses))
+    localStorage.setItem("pickUpAddress", JSON.stringify(updatedAddresses))
   };
 
   const handleDropOffChange = (event, index) => {
     const updatedAddresses = [...dropOffAddresses];
     updatedAddresses[index] = event.target.value;
     setDropOffAddresses(updatedAddresses);
-    localStorage.setItem("dropOffAddress", JSON.stringify(dropOffAddresses));
+    localStorage.setItem("dropOffAddress", JSON.stringify(updatedAddresses));
   };
 
   const addPickUpAddress = () => {

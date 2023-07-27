@@ -9,7 +9,9 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
   const [pickUpStorey, setPickUpStorey] = useState('');
   const [dropOffStorey, setDropOffStorey] = useState('');
   const [canTruckParkInDriveway, setCanTruckParkInDriveway] = useState(''); 
-  let quoteTotal = 0
+  let pickupTotal = 0
+  let dropoffTotal = 0
+  let accessTotal = 0
 
   const handlePickUpStoreyChange = (value) => {
     setPickUpStorey(value);
@@ -27,40 +29,87 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
   const getSelectedAnswer = (question, value) => {
     switch (question) {
       case 'pickUpStorey':
-      case 'dropOffStorey':
-        switch (value) {
+      switch (value) {
           case 'single':
-            quoteTotal=(quoteTotal + 1) * 190
+            pickupTotal=(pickupTotal + .5) 
+            localStorage.setItem("pickupTotal", pickupTotal)  
             
             return 'Single';
           case 'double':
-
+            pickupTotal=(pickupTotal + 1) 
+            localStorage.setItem("pickupTotal", pickupTotal) 
+            
             return 'Double';
           case 'other':
             return 'Other';
           case 'apartment_stairs':
+            pickupTotal=(pickupTotal + 1.5 ) 
+            localStorage.setItem("pickupTotal", pickupTotal) 
             return 'Apartment building with stairs';
           case 'apartment_lift':
+            pickupTotal=(pickupTotal + 1) 
+            localStorage.setItem("pickupTotal", pickupTotal) 
             return 'Apartment building with a lift';
           case '3_or_more_levels':
+            pickupTotal=(pickupTotal+ 1.5 ) 
+            localStorage.setItem("pickupTotal", pickupTotal) 
             return '3 or more levels';
           default:
             return '';
         }
+        
+          
+          case 'dropOffStorey':
+            switch (value) {
+              case 'single':
+                dropoffTotal=(dropoffTotal + .5)
+                localStorage.setItem("dropOffTotal", dropoffTotal)  
+                console.log(accessTotal);
+                return 'Single';
+              case 'double':
+                dropoffTotal=(dropoffTotal + 1)
+                localStorage.setItem("dropOffTotal", dropoffTotal)  
+                
+                return 'Double';
+              case 'other':
+                return 'Other';
+              case 'apartment_stairs':
+                dropoffTotal=(dropoffTotal+ 1.5 ) 
+                localStorage.setItem("dropOffTotal", dropoffTotal) 
+                return 'Apartment building with stairs';
+              case 'apartment_lift':
+                dropoffTotal=(dropoffTotal + 1) 
+                localStorage.setItem("dropOffTotal", dropoffTotal) 
+                return 'Apartment building with a lift';
+              case '3_or_more_levels':
+                dropoffTotal=(dropoffTotal+ 1.5 ) 
+                localStorage.setItem("dropOffTotal", dropoffTotal) 
+                return '3 or more levels';
+              default:
+                return '';
+            }
+
       case 'canTruckParkInDriveway':
         switch (value) {
           case 'yes':
-            quoteTotal=(quoteTotal + 2) * 190
-            localStorage.setItem("total", quoteTotal)
+            accessTotal=(accessTotal + 0) 
+            localStorage.setItem("accessTotal", accessTotal)
             return 'Yes';
           case 'no':
-            
             return 'No';
           case 'truck_on_street':
-            return 'Can the truck park on the street?';
+            accessTotal=(accessTotal + .5 ) 
+            localStorage.setItem("accessTotal", accessTotal)
+            return 'Truck can park on the street.';
+            
           case 'truck_15_30m_away':
+            accessTotal=(accessTotal + 1 ) 
+            localStorage.setItem("accessTotal", accessTotal)
             return 'Will the truck need to park 15-30m away from the property?';
           case 'truck_30m_away':
+            accessTotal=(accessTotal + 1.5 ) 
+            localStorage.setItem("accessTotal", accessTotal)
+            console.log(accessTotal);
             return 'Will the truck need to park more than 30m away from the front door?';
           default:
             return '';
@@ -68,7 +117,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       default:
         return '';
     }
-    localStorage.setItem("price")
+    // localStorage.setItem("price")
   };
 
   return (
@@ -136,7 +185,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       {canTruckParkInDriveway === 'no' && (
         <div>
           <h4>If No, select from the following options:</h4>
-          <button onClick={() => handleCanTruckParkChange('truck_on_street')}>Can the truck park on the street?</button>
+          <button onClick={() => handleCanTruckParkChange('truck_on_street')}>Truck can park on the street?</button>
           <button onClick={() => handleCanTruckParkChange('truck_15_30m_away')}>Will the truck need to park 15-30m away from the property?</button>
           <button onClick={() => handleCanTruckParkChange('truck_30m_away')}>Will the truck need to park more than 30m away from the front door?</button>
         </div>

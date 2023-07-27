@@ -1,13 +1,63 @@
-import React from "react"
+import React, {useState} from "react"
 import { Link } from "react-router-dom"
 import { Headermain } from "../../heading/heading"
 
-export const FurnishedQuestion = () =>
-{
+import "./questionFour.css"
+
+export const FurnishedQuestion = () => {
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+  
+    const handleAnswerSelection = (answer) => {
+      setSelectedAnswer(answer);
+    };
+  
     return(
         <div>
             <Headermain />
-            <h1> How furnished is your house?</h1>
+            <h1 className="title"> How furnished is your house?</h1>
+            <h2 className="subTitle">Please select one of the following options.</h2>
+            <div className="container">
+                <div className="fewItems">
+                <button 
+                className={`fewItemsBtn ${selectedAnswer === "fewItems" ? "selected" : ""}`}
+                onClick={() => handleAnswerSelection("Only a few Items.")}>
+                Only a few items to be moved.</button>
+                <p className="fewItemsP">Are we just moving a few items?</p>
+                    
+                </div>
+
+                <div className="bigStuff">
+                <button className={`bigStuffBtn ${selectedAnswer} === "bigStuff" ? "selected" : ""}`}
+                onClick={() => handleAnswerSelection("Just the big stuff.")}>Just the big furniture.</button>
+                <p className="bigStuffP">Are we just moving the big Stuff? <br/> for example:</p>
+                <ul>
+                    <li>Dining Table</li>
+                    <li>Beds </li>
+                    <li>Couch</li>
+                    <li>White Goods</li>
+                    <li>TV</li>
+                    <li>+ Other big furniture</li>
+                </ul>
+                </div>
+                <div className="entireHouse">
+                    <button className={`entireHouseBtn ${selectedAnswer === "entireHouse" ? "selected" : ""}`}
+                    onClick={() => handleAnswerSelection("The entire house.")}>Entire house contents.</button>
+                    <p className="entireHouseP">Are we moving everything? <br/> for example:</p>
+                    <ul>
+                    <li>Pre-packed boxes</li>
+                    <li>Loose Bags/items</li>
+                    <li>Dining Table</li>
+                    <li>Beds </li>
+                    <li>Couch</li>
+                    <li>White Goods</li>
+                    <li>TV</li>
+                    <li>+ Other big furniture</li>
+                </ul>
+                </div>
+
+                
+            </div>
+            <p>You selected: {selectedAnswer} </p>
             <button className="nextQ">
                 <Link to="/landing/questionFive">Next question</Link>
             </button>

@@ -9,7 +9,28 @@ export const BedroomQuestion = () => {
 
     const handleAnswerSelection = (answer) => {
         setSelectedAnswer(answer);
-        localStorage.setItem("numberOfRooms", answer)
+
+    let bedroomsTotal = 0
+        switch (answer) {
+          case '1':
+            bedroomsTotal=(bedroomsTotal + 1) 
+            break;
+          case '2':
+            bedroomsTotal=(bedroomsTotal + 1.5) 
+            break;
+          case '3':
+            bedroomsTotal=(bedroomsTotal + 2) 
+            break;
+          case '4':
+            bedroomsTotal=(bedroomsTotal + 2.5) 
+            break;
+          case '5+':
+            bedroomsTotal=(bedroomsTotal + 3 ) 
+            break;
+          default:
+            bedroomsTotal = null;
+        }
+        localStorage.setItem("bedroomsTotal", answer)
     };
 
     const renderAnswerButtons = () => {
