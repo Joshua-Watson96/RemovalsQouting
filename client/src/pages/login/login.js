@@ -32,9 +32,10 @@ export function Login(props) {
   
   const isLoggedIn = Auth.loggedIn();
 
-  if (isLoggedIn) {
-    return <redirect to="/landing" />;
-  }
+  // if (isLoggedIn) {
+  //   // return <redirect to="/landing" />;
+  //   window.location.replace("/landing")
+  // }
 
   return (
     <div className="container my-1">

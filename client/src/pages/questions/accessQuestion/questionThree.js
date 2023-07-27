@@ -3,10 +3,13 @@ import { Headermain } from '../../heading/heading';
 
 // const [quoteTotal, setqouteTotal] = useState(0);
 
+
+
 export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
   const [pickUpStorey, setPickUpStorey] = useState('');
   const [dropOffStorey, setDropOffStorey] = useState('');
   const [canTruckParkInDriveway, setCanTruckParkInDriveway] = useState(''); 
+  let quoteTotal = 0
 
   const handlePickUpStoreyChange = (value) => {
     setPickUpStorey(value);
@@ -27,8 +30,11 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       case 'dropOffStorey':
         switch (value) {
           case 'single':
+            quoteTotal=(quoteTotal + 1) * 190
+            
             return 'Single';
           case 'double':
+
             return 'Double';
           case 'other':
             return 'Other';
@@ -44,8 +50,11 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       case 'canTruckParkInDriveway':
         switch (value) {
           case 'yes':
+            quoteTotal=(quoteTotal + 2) * 190
+            localStorage.setItem("total", quoteTotal)
             return 'Yes';
           case 'no':
+            
             return 'No';
           case 'truck_on_street':
             return 'Can the truck park on the street?';
@@ -59,6 +68,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       default:
         return '';
     }
+    localStorage.setItem("price")
   };
 
   return (

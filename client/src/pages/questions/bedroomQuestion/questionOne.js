@@ -9,6 +9,7 @@ export const BedroomQuestion = () => {
 
     const handleAnswerSelection = (answer) => {
         setSelectedAnswer(answer);
+        localStorage.setItem("numberOfRooms", answer)
     };
 
     const renderAnswerButtons = () => {

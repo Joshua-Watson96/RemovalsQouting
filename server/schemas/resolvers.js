@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const { AuthenticationError } = require('apollo-server-express');
+const { signToken } =require('../utils/auth')
 
 const resolvers = {
   Query: {
