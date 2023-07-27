@@ -6,10 +6,26 @@ import "./questionFour.css"
 
 export const FurnishedQuestion = () => {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
+    let furnishedTotal = 0
   
     const handleAnswerSelection = (answer) => {
       setSelectedAnswer(answer);
     };
+
+    switch (answer) {
+        case 'fewItems':
+            furnishedTotal=(furnishedTotal + 0);
+            return 'fewItems'
+        case "bigStuff":
+            furnishedTotal=(furnishedTotal + 1.5)
+            return 'bigStuff'
+        case 'entireHouse':
+            furnishedTotal=(furnishedTotal + 2)
+            return 'entireHouse'
+    
+        default:
+            break;
+    }
   
     return(
         <div>
