@@ -1,0 +1,21 @@
+.fixed-Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+  }
+  
+  .companyName {
+    margin: 0;
+  }
+  
+  .logOut {
+    padding: 10px 20px;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  

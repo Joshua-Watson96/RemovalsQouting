@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
+// const [quoteTotal, setqouteTotal] = useState(0);
+
 export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
   const [pickUpStorey, setPickUpStorey] = useState('');
   const [dropOffStorey, setDropOffStorey] = useState('');
-  const [canTruckParkInDriveway, setCanTruckParkInDriveway] = useState(''); // Values: 'yes', 'no'
+  const [canTruckParkInDriveway, setCanTruckParkInDriveway] = useState(''); 
 
   const handlePickUpStoreyChange = (value) => {
     setPickUpStorey(value);
@@ -17,6 +19,47 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
     setCanTruckParkInDriveway(value);
   };
 
+  
+  const getSelectedAnswer = (question, value) => {
+    switch (question) {
+      case 'pickUpStorey':
+      case 'dropOffStorey':
+        switch (value) {
+          case 'single':
+            return 'Single';
+          case 'double':
+            return 'Double';
+          case 'other':
+            return 'Other';
+          case 'apartment_stairs':
+            return 'Apartment building with stairs';
+          case 'apartment_lift':
+            return 'Apartment building with a lift';
+          case '3_or_more_levels':
+            return '3 or more levels';
+          default:
+            return '';
+        }
+      case 'canTruckParkInDriveway':
+        switch (value) {
+          case 'yes':
+            return 'Yes';
+          case 'no':
+            return 'No';
+          case 'truck_on_street':
+            return 'Can the truck park on the street?';
+          case 'truck_15_30m_away':
+            return 'Will the truck need to park 15-30m away from the property?';
+          case 'truck_30m_away':
+            return 'Will the truck need to park more than 30m away from the front door?';
+          default:
+            return '';
+        }
+      default:
+        return '';
+    }
+  };
+
   return (
     <div>
       <h3>Pick Up Address:</h3>
@@ -24,6 +67,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
         <button onClick={() => handlePickUpStoreyChange('single')}>Single</button>
         <button onClick={() => handlePickUpStoreyChange('double')}>Double</button>
         <button onClick={() => handlePickUpStoreyChange('other')}>Other</button>
+        <span>{getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
       </div>
 
       {pickUpStorey === 'other' && (
@@ -32,6 +76,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
           <button onClick={() => handlePickUpStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
           <button onClick={() => handlePickUpStoreyChange('apartment_lift')}>Apartment building with a lift</button>
           <button onClick={() => handlePickUpStoreyChange('3_or_more_levels')}>3 or more levels</button>
+          <span>{getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
         </div>
       )}
 
@@ -40,6 +85,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
         <button onClick={() => handleDropOffStoreyChange('single')}>Single</button>
         <button onClick={() => handleDropOffStoreyChange('double')}>Double</button>
         <button onClick={() => handleDropOffStoreyChange('other')}>Other</button>
+        <span>{getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
       </div>
 
       {dropOffStorey === 'other' && (
@@ -48,6 +94,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
           <button onClick={() => handleDropOffStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
           <button onClick={() => handleDropOffStoreyChange('apartment_lift')}>Apartment building with a lift</button>
           <button onClick={() => handleDropOffStoreyChange('3_or_more_levels')}>3 or more levels</button>
+          <span>{getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
         </div>
       )}
 
@@ -71,6 +118,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
             onChange={() => handleCanTruckParkChange('no')}
           />
         </label>
+        <span>{getSelectedAnswer('canTruckParkInDriveway', canTruckParkInDriveway)}</span>
       </div>
 
       {canTruckParkInDriveway === 'no' && (
