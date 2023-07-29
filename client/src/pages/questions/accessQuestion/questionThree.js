@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Headermain } from '../../heading/heading';
+import { Link } from "react-router-dom"
 
 // const [quoteTotal, setqouteTotal] = useState(0);
 
@@ -128,7 +129,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
         <button onClick={() => handlePickUpStoreyChange('single')}>Single</button>
         <button onClick={() => handlePickUpStoreyChange('double')}>Double</button>
         <button onClick={() => handlePickUpStoreyChange('other')}>Other</button>
-        <span>{getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
+        <span className='selectedPickUp'> You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
       </div>
 
       {pickUpStorey === 'other' && (
@@ -137,7 +138,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
           <button onClick={() => handlePickUpStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
           <button onClick={() => handlePickUpStoreyChange('apartment_lift')}>Apartment building with a lift</button>
           <button onClick={() => handlePickUpStoreyChange('3_or_more_levels')}>3 or more levels</button>
-          <span>{getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
+          <span className='selectedOther'>You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
         </div>
       )}
 
@@ -146,7 +147,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
         <button onClick={() => handleDropOffStoreyChange('single')}>Single</button>
         <button onClick={() => handleDropOffStoreyChange('double')}>Double</button>
         <button onClick={() => handleDropOffStoreyChange('other')}>Other</button>
-        <span>{getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
+        <span className='selectedDropOff'> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
       </div>
 
       {dropOffStorey === 'other' && (
@@ -155,11 +156,12 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
           <button onClick={() => handleDropOffStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
           <button onClick={() => handleDropOffStoreyChange('apartment_lift')}>Apartment building with a lift</button>
           <button onClick={() => handleDropOffStoreyChange('3_or_more_levels')}>3 or more levels</button>
-          <span>{getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
+          <span> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
         </div>
       )}
 
-      <h3>Can the truck park in the driveway? (There are no low hanging trees or wires)</h3>
+      <h3>Can the truck park in the driveway?</h3>
+      <h4>(There are no over-hanging trees, powerlines etc.)</h4>
       <div>
         <label>
           Yes
@@ -179,17 +181,20 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
             onChange={() => handleCanTruckParkChange('no')}
           />
         </label>
-        <span>{getSelectedAnswer('canTruckParkInDriveway', canTruckParkInDriveway)}</span>
+        <span>You selected: {getSelectedAnswer('canTruckParkInDriveway', canTruckParkInDriveway)}</span>
       </div>
 
       {canTruckParkInDriveway === 'no' && (
         <div>
-          <h4>If No, select from the following options:</h4>
-          <button onClick={() => handleCanTruckParkChange('truck_on_street')}>Truck can park on the street?</button>
-          <button onClick={() => handleCanTruckParkChange('truck_15_30m_away')}>Will the truck need to park 15-30m away from the property?</button>
+          <h4>If no, please select one of the following options:</h4>
+          <button onClick={() => handleCanTruckParkChange('truck_on_street')}>The truck can park on the street.</button> <br/>
+          <button onClick={() => handleCanTruckParkChange('truck_15_30m_away')}>Will the truck need to park 15-30m away from the property?</button> <br/>
           <button onClick={() => handleCanTruckParkChange('truck_30m_away')}>Will the truck need to park more than 30m away from the front door?</button>
         </div>
       )}
+      <div>
+        <button> <Link to="/landing/questionFour"> Next Question </Link></button>
+      </div>
     </div>
   );
 };

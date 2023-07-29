@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Link, redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth'; 
+
+import "./login.css"
 
 export function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -30,20 +32,21 @@ export function Login(props) {
   };
 
   
-  const isLoggedIn = Auth.loggedIn();
+  
 
-  // if (isLoggedIn) {
-  //   // return <redirect to="/landing" />;
-  //   window.location.replace("/landing")
-  // }
+
 
   return (
-    <div className="container my-1">
+    
+    <div className="container ">
       
-      <h1>Welcome, please login or signup to gain access to the free quote app.</h1>
-      <h2>Login</h2>
+      
+      <h1 className='pageTitle'>Welcome.</h1>
+      <h2> Free removals quote.</h2>
+      <h3> Please login or signup.</h3>
+    
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
+        <div className="emailLogin">
           <label htmlFor="email">Email address:</label>
           <input
             placeholder="youremail@test.com"
@@ -53,7 +56,7 @@ export function Login(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
+        <div className="passwordLogin">
           <label htmlFor="pwd">Password:</label>
           <input
             placeholder="******"
@@ -68,9 +71,9 @@ export function Login(props) {
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}
-        <div className="flex-row flex-end">
+        <div className="buttons">
           <button type="submit">Log in!</button>
-          <h3>Don't have an account?</h3>
+          <h3 className='noAcc'>Don't have an account?</h3>
           <button><Link to="/signup">Sign up here!</Link></button>
         </div>
       </form>

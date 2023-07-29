@@ -1,0 +1,16 @@
+
+/* Style for the spans */
+.selectedPickUp,
+.selectedOther,
+.selectedDropOff,
+.selectedCanTruckPark {
+  display: block;
+  margin-top: 10px; /* Adjust the margin as needed for spacing */
+}
+
+/* Optional: Add some styles for the buttons and labels to improve the appearance */
+button,
+label {
+  display: block;
+  margin-bottom: 5px; /* Adjust the margin as needed for spacing */
+}

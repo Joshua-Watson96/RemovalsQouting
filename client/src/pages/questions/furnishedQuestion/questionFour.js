@@ -11,20 +11,20 @@ export const FurnishedQuestion = () => {
     const handleAnswerSelection = (answer) => {
       setSelectedAnswer(answer);
     
-
+    
     switch (answer) {
         case 'fewItems':
             furnishedTotal=(furnishedTotal + 0);
             localStorage.setItem("furnishedTotal", furnishedTotal)
-            return 'fewItems'
+            return 'fewItems';
         case "bigStuff":
             furnishedTotal=(furnishedTotal + 1.5)
             localStorage.setItem("furnishedTotal", furnishedTotal)
-            return 'bigStuff'
+            return 'bigStuff';
         case 'entireHouse':
             furnishedTotal=(furnishedTotal + 2)
             localStorage.setItem("furnishedTotal", furnishedTotal)
-            return 'entireHouse'
+            return 'entireHouse';
     
         default:
             break;
