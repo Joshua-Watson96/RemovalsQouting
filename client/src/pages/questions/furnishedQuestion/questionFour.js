@@ -6,11 +6,11 @@ import "./questionFour.css"
 
 export const FurnishedQuestion = () => {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
-    let furnishedTotal = 0
+    
   
     const handleAnswerSelection = (answer) => {
       setSelectedAnswer(answer);
-    
+      let furnishedTotal = 0
     
     switch (answer) {
         case 'fewItems':
