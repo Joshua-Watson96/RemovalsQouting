@@ -7,8 +7,8 @@ export const Headermain = () => {
         <header>
             <div className="fixed-Header">
                 <h1 className="companyName"> Company Name Here </h1>
-                <button className="logOut"> <Link to="/"> Log Out </Link>
-                </button>
+                <Link to="/"> <button type="submit"  className="logOut">  Log Out 
+                </button></Link>
                 
 
             </div>

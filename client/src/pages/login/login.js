@@ -37,7 +37,7 @@ export function Login(props) {
 
 
   return (
-    
+    <body className='loginBody'>
     <div className="container ">
       
       
@@ -66,6 +66,7 @@ export function Login(props) {
             onChange={handleChange}
           />
         </div>
+        <br/>
         {error ? (
           <div>
             <p className="error-text">The provided credentials are incorrect</p>
@@ -74,10 +75,11 @@ export function Login(props) {
         <div className="buttons">
           <button type="submit">Log in!</button>
           <h3 className='noAcc'>Don't have an account?</h3>
-          <button><Link to="/signup">Sign up here!</Link></button>
+          <Link to="/signup"><button type="submit">Sign up here!</button></Link>
         </div>
       </form>
     </div>
+    </body>
   );
 }
 

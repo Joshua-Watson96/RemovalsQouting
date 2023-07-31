@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Headermain } from '../../heading/heading';
 import { Link } from "react-router-dom"
+import "./questionThree.css"
 
 // const [quoteTotal, setqouteTotal] = useState(0);
 
@@ -118,16 +119,18 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       default:
         return '';
     }
-    // localStorage.setItem("price")
+    
   };
 
   return (
     <div>
       <Headermain />
-      <h3>Pick Up Address:</h3>
+      <h1>What is the access like at each property?</h1>
+      <h2>(Is your property single/double storey, or an aparment building?)</h2>
+      <h3>Pick Up Access:</h3>
       <div>
-        <button onClick={() => handlePickUpStoreyChange('single')}>Single</button>
-        <button onClick={() => handlePickUpStoreyChange('double')}>Double</button>
+        <button onClick={() => handlePickUpStoreyChange('single')}>Single storey</button>
+        <button onClick={() => handlePickUpStoreyChange('double')}>Double storey</button>
         <button onClick={() => handlePickUpStoreyChange('other')}>Other</button>
         <br/>
         <span className='selectedPickUp'> You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
@@ -144,11 +147,12 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
         </div>
       )}
 
-      <h3>Drop Off Address:</h3>
+      <h3>Drop Off Access:</h3>
       <div>
-        <button onClick={() => handleDropOffStoreyChange('single')}>Single</button>
-        <button onClick={() => handleDropOffStoreyChange('double')}>Double</button>
-        <button onClick={() => handleDropOffStoreyChange('other')}>Other</button>
+        <button onClick={() => handleDropOffStoreyChange('single')}>Single storey</button>
+        <button onClick={() => handleDropOffStoreyChange('double')}>Double storey</button>
+        <button onClick={() => handleDropOffStoreyChange('other')}>Other </button>
+        <br/>
         <span className='selectedDropOff'> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
       </div>
 
@@ -164,7 +168,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       )}
 
       <h3>Can the truck park in the driveway?</h3>
-      <h4>(There are no over-hanging trees, powerlines etc.)</h4>
+      <h4>(Are there any low-hanging tree branches, powerlines etc)</h4>
       <div>
         <label>
           Yes
@@ -184,6 +188,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
             onChange={() => handleCanTruckParkChange('no')}
           />
         </label>
+        <br/>
         <span>You selected: {getSelectedAnswer('canTruckParkInDriveway', canTruckParkInDriveway)}</span>
       </div>
 

@@ -39,7 +39,7 @@ export const FurnishedQuestion = () => {
                 <div className="fewItems">
                 <button 
                 className={`fewItemsBtn ${selectedAnswer === "fewItems" ? "selected" : ""}`}
-                onClick={() => handleAnswerSelection("Only a few Items.")}>
+                onClick={() => handleAnswerSelection("fewItems")}>
                 Only a few items to be moved.</button>
                 <p className="fewItemsP">Are we just moving a few items?</p>
                     
@@ -47,13 +47,13 @@ export const FurnishedQuestion = () => {
 
                 <div className="bigStuff">
                 <button className={`bigStuffBtn ${selectedAnswer} === "bigStuff" ? "selected" : ""}`}
-                onClick={() => handleAnswerSelection("Just the big stuff.")}>Just the big furniture.</button>
+                onClick={() => handleAnswerSelection("bigStuff")}>Just the big furniture.</button>
                 <p className="bigStuffP">Are we just moving the big Stuff? <br/> for example:</p>
                 <ul>
-                    <li>Dining Table</li>
+                    <li>Dining table</li>
                     <li>Beds </li>
                     <li>Couch</li>
-                    <li>White Goods</li>
+                    <li>White goods</li>
                     <li>TV</li>
                     <li>+ Other big furniture</li>
                 </ul>
@@ -64,11 +64,11 @@ export const FurnishedQuestion = () => {
                     <p className="entireHouseP">Are we moving everything? <br/> for example:</p>
                     <ul>
                     <li>Pre-packed boxes</li>
-                    <li>Loose Bags/items</li>
-                    <li>Dining Table</li>
+                    <li>Loose bags/items</li>
+                    <li>Dining table</li>
                     <li>Beds </li>
                     <li>Couch</li>
-                    <li>White Goods</li>
+                    <li>White goods</li>
                     <li>TV</li>
                     <li>+ Other big furniture</li>
                 </ul>

@@ -27,6 +27,11 @@ export const QuoteReview = () => {
   let lowerTotal = (lowerHours) * 195;
   return (
     <div>
+      <div>
+        <h1>
+          Here is a review of the quote.
+        </h1>
+      </div>
       <ul>
         <li>Pick Up Address: {pickUpAddress}</li>
         <li>Drop Off Address:{dropOffAddress}</li>
@@ -40,9 +45,19 @@ export const QuoteReview = () => {
       <div>
         <button><Link to="/landing/questionFive">Back</Link></button>
         <button><Link to="/landing">Back to start</Link></button>
-        <button><Link to="/landing/questionFive">Back</Link></button>
+        <p>If you would like to send this quote through, <br/> please click submit, and someone will be in touch with <br/> you ASAP. Thank you.</p>
+        <button>Submit</button>
       </div>
-      q3 total + q1 total + q2 total = $ estimated time = total
+      <div className="disclaimer">
+        <h2>
+          DISCLAIMER:
+        </h2>
+        <p>
+          Please use this quote as a rough estimate/guide only. <br/>
+          There are a lot of different variables that could <br/>
+          make the job quicker, or slower.
+        </p>
+      </div>
     </div>
   );
 };
