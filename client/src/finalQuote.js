@@ -34,7 +34,7 @@ export const QuoteReview = () => {
         <li>Preferred moving date: {movingDate}</li>
         <li>Settlement Date: {settlementDate}</li>
         <li>Settlement Time: {settlementTime}</li>
-        <li>The job will take between: {lowerHours} - {higherHours}</li>
+        <li>The job will take between: {lowerHours} - {higherHours} hours.</li>
         <li>The estimated cost is between: ${lowerTotal} - ${higherTotal} </li>
       </ul>
       <div>

@@ -129,6 +129,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
         <button onClick={() => handlePickUpStoreyChange('single')}>Single</button>
         <button onClick={() => handlePickUpStoreyChange('double')}>Double</button>
         <button onClick={() => handlePickUpStoreyChange('other')}>Other</button>
+        <br/>
         <span className='selectedPickUp'> You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
       </div>
 
@@ -138,6 +139,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
           <button onClick={() => handlePickUpStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
           <button onClick={() => handlePickUpStoreyChange('apartment_lift')}>Apartment building with a lift</button>
           <button onClick={() => handlePickUpStoreyChange('3_or_more_levels')}>3 or more levels</button>
+          <br/>
           <span className='selectedOther'>You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
         </div>
       )}
@@ -156,6 +158,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
           <button onClick={() => handleDropOffStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
           <button onClick={() => handleDropOffStoreyChange('apartment_lift')}>Apartment building with a lift</button>
           <button onClick={() => handleDropOffStoreyChange('3_or_more_levels')}>3 or more levels</button>
+          <br/>
           <span> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
         </div>
       )}
