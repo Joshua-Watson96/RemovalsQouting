@@ -1,16 +1,90 @@
-
-/* Style for the spans */
-.selectedPickUp,
-.selectedOther,
-.selectedDropOff,
-.selectedCanTruckPark {
-  display: block;
-  margin-top: 10px; /* Adjust the margin as needed for spacing */
+/* QuestionThree.css */
+.questionThreeBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 60px; 
+  background-color: wheat;
 }
 
-/* Optional: Add some styles for the buttons and labels to improve the appearance */
-button,
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 20px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+/* Style for the radio input buttons */
 label {
-  display: block;
-  margin-bottom: 5px; /* Adjust the margin as needed for spacing */
+  margin-right: 10px;
+}
+
+.bottomButtons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.nextBtn,
+.backBtn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.nextBtn:hover,
+.backBtn:hover {
+  background-color: #218838;
+}
+
+.nextBtn a,
+.backBtn a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Media query to stack the "Back" and "Next Question" buttons on small screens */
+@media (max-width: 480px) {
+  .bottomButtons {
+    flex-direction: column;
+    align-items: center;
+  }
 }

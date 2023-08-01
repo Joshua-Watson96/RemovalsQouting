@@ -123,15 +123,18 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
   };
 
   return (
+    <body className='questionThreeBody'>
     <div>
+      <div className='header'>
       <Headermain />
+      </div>
       <h1>What is the access like at each property?</h1>
       <h2>(Is your property single/double storey, or an aparment building?)</h2>
       <h3>Pick Up Access:</h3>
       <div>
-        <button onClick={() => handlePickUpStoreyChange('single')}>Single storey</button>
-        <button onClick={() => handlePickUpStoreyChange('double')}>Double storey</button>
-        <button onClick={() => handlePickUpStoreyChange('other')}>Other</button>
+        <button type='submit' onClick={() => handlePickUpStoreyChange('single')}>Single storey</button>
+        <button type='submit' onClick={() => handlePickUpStoreyChange('double')}>Double storey</button>
+        <button type='submit' onClick={() => handlePickUpStoreyChange('other')}>Other</button>
         <br/>
         <span className='selectedPickUp'> You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
       </div>
@@ -139,9 +142,9 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       {pickUpStorey === 'other' && (
         <div>
           <h4>If Other, select from the following options:</h4>
-          <button onClick={() => handlePickUpStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
-          <button onClick={() => handlePickUpStoreyChange('apartment_lift')}>Apartment building with a lift</button>
-          <button onClick={() => handlePickUpStoreyChange('3_or_more_levels')}>3 or more levels</button>
+          <button type='submit' onClick={() => handlePickUpStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
+          <button type='submit' onClick={() => handlePickUpStoreyChange('apartment_lift')}>Apartment building with a lift</button>
+          <button type='submit' onClick={() => handlePickUpStoreyChange('3_or_more_levels')}>3 or more levels</button>
           <br/>
           <span className='selectedOther'>You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
         </div>
@@ -149,9 +152,9 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
 
       <h3>Drop Off Access:</h3>
       <div>
-        <button onClick={() => handleDropOffStoreyChange('single')}>Single storey</button>
-        <button onClick={() => handleDropOffStoreyChange('double')}>Double storey</button>
-        <button onClick={() => handleDropOffStoreyChange('other')}>Other </button>
+        <button type='submit' onClick={() => handleDropOffStoreyChange('single')}>Single storey</button>
+        <button type='submit' onClick={() => handleDropOffStoreyChange('double')}>Double storey</button>
+        <button type='submit' onClick={() => handleDropOffStoreyChange('other')}>Other </button>
         <br/>
         <span className='selectedDropOff'> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
       </div>
@@ -159,9 +162,9 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       {dropOffStorey === 'other' && (
         <div>
           <h4>If Other, select from the following options:</h4>
-          <button onClick={() => handleDropOffStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
-          <button onClick={() => handleDropOffStoreyChange('apartment_lift')}>Apartment building with a lift</button>
-          <button onClick={() => handleDropOffStoreyChange('3_or_more_levels')}>3 or more levels</button>
+          <button type='submit' onClick={() => handleDropOffStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
+          <button type='submit'onClick={() => handleDropOffStoreyChange('apartment_lift')}>Apartment building with a lift</button>
+          <button type='submit' onClick={() => handleDropOffStoreyChange('3_or_more_levels')}>3 or more levels</button>
           <br/>
           <span> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
         </div>
@@ -195,15 +198,16 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       {canTruckParkInDriveway === 'no' && (
         <div>
           <h4>If no, please select one of the following options:</h4>
-          <button onClick={() => handleCanTruckParkChange('truck_on_street')}>The truck can park on the street.</button> <br/>
-          <button onClick={() => handleCanTruckParkChange('truck_15_30m_away')}>Will the truck need to park 15-30m away from the property?</button> <br/>
-          <button onClick={() => handleCanTruckParkChange('truck_30m_away')}>Will the truck need to park more than 30m away from the front door?</button>
+          <button type='submit' onClick={() => handleCanTruckParkChange('truck_on_street')}>The truck can park on the street.</button> <br/>
+          <button type='submit' onClick={() => handleCanTruckParkChange('truck_15_30m_away')}>Will the truck need to park 15-30m away from the property?</button> <br/>
+          <button type='submit' onClick={() => handleCanTruckParkChange('truck_30m_away')}>Will the truck need to park more than 30m away from the front door?</button>
         </div>
       )}
       <div>
-        <button> <Link to="/landing/questionTwo">Back</Link></button>
-        <button> <Link to="/landing/questionFour"> Next Question </Link></button>
+      <Link to="/landing/questionTwo"><button type='submit'> Back</button></Link>
+      <Link to="/landing/questionFour"><button type='submit'>  Next Question </button></Link>
       </div>
     </div>
+    </body>
   );
 };

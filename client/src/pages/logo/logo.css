@@ -1,0 +1,12 @@
+.logoBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+  }
+  
+  .logoBody img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  

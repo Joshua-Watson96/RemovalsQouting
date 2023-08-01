@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth'; 
-
+import { Logo } from "../logo/logo"
 import "./login.css"
 
 export function Login(props) {
@@ -38,11 +38,12 @@ export function Login(props) {
 
   return (
     <body className='loginBody'>
+      
     <div className="container ">
       
       
-      <h1 className='pageTitle'>Welcome.</h1>
-      <h2> Free removals quote.</h2>
+      <h1 className='pageTitle'><Logo /></h1>
+      <h2> Free house move quote.</h2>
       <h3> Please login or signup.</h3>
     
       <form onSubmit={handleFormSubmit}>

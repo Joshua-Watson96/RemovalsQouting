@@ -67,4 +67,8 @@
   .login {
     font-size: 8px;
   }
+
+  /* Example @import code from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap');
+
   

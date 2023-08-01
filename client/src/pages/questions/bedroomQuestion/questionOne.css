@@ -13,8 +13,9 @@ html {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  padding-top: 60px; /* Adjust the value based on your header height */
-  background-color: wheat
+  padding-top: 60px; 
+  background-color: wheat;
+  
 }
 
 .header {
@@ -74,8 +75,14 @@ button[type="submit"]:focus {
   display: inline-block;
 }
 
-.backBtn {
+/* .backBtn {
   margin-right: 10px;
+} */
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap');

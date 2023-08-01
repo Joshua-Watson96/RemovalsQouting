@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Headermain } from '../../heading/heading';
+import "./questionTwo.css"
 
 export const AddressForm = () => {
   const [pickupAddresses, setPickupAddresses] = useState(['']);
@@ -48,11 +49,14 @@ export const AddressForm = () => {
   };
 
   return (
-    
-    <form onSubmit={handleSubmit}>
+    <body className='questionTwoBody'>
+      <div className='header'>
       <Headermain />
+      </div>
+    <form onSubmit={handleSubmit}>
+      <h1>What is your pick up and drop off address(es)?</h1>
       {pickupAddresses.map((address, index) => (
-        <div key={index}>
+        <div key={index} className='addressContainer'>
           <label className='addQuestion'>
             {index === 0 ? 'Pick up Address:' : 'Additional Pick up Address:'}
           </label>
@@ -70,12 +74,12 @@ export const AddressForm = () => {
           )}
         </div>
       ))}
-      <button type='button' onClick={addPickUpAddress}>
+      <button type='submit' onClick={addPickUpAddress}>
         Add Pick Up Address
       </button>
 
       {dropOffAddresses.map((address, index) => (
-        <div key={index}>
+        <div key={index} className='addressContainer'>
           <label className='addQuestion'>
             {index === 0 ? 'Drop off Address:' : 'Additional Drop off Address:'}
           </label>
@@ -87,19 +91,19 @@ export const AddressForm = () => {
             placeholder={`Please enter ${index === 0 ? 'your' : 'an additional'} drop-off address`}
           />
           {index > 0 && (
-            <button type='button' onClick={() => removeDropOffAddress(index)}>
+            <button type='submit' onClick={() => removeDropOffAddress(index)}>
               Remove
             </button>
           )}
         </div>
       ))}
-      <button type='button' onClick={addDropOffAddress}>
+      <button type='submit' onClick={addDropOffAddress}>
         Add Drop Off Address
       </button>
 
-      <button type='submit'>
-        <Link to='/landing/questionThree'>Next Question</Link>
-      </button>
+      <Link to='/landing/questionThree'><button className="nextBtn" type='submit'> Next Question </button> </Link>
+      <Link to="/landing/questionOne"> <button className="backBtn" type='submit'>back</button> </Link>
     </form>
+    </body>
   );
 };

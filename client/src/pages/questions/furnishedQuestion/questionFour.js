@@ -31,13 +31,14 @@ export const FurnishedQuestion = () => {
     }
 }
     return(
+        <body className="furnishedQuestionBody">
         <div>
             <Headermain />
             <h1 className="title"> How furnished is your house?</h1>
             <h2 className="subTitle">Please select one of the following options.</h2>
             <div className="container">
                 <div className="fewItems">
-                <button 
+                <button type='submit' 
                 className={`fewItemsBtn ${selectedAnswer === "fewItems" ? "selected" : ""}`}
                 onClick={() => handleAnswerSelection("fewItems")}>
                 Only a few items to be moved.</button>
@@ -46,7 +47,7 @@ export const FurnishedQuestion = () => {
                 </div>
 
                 <div className="bigStuff">
-                <button className={`bigStuffBtn ${selectedAnswer} === "bigStuff" ? "selected" : ""}`}
+                <button type='submit' className={`bigStuffBtn ${selectedAnswer} === "bigStuff" ? "selected" : ""}`}
                 onClick={() => handleAnswerSelection("bigStuff")}>Just the big furniture.</button>
                 <p className="bigStuffP">Are we just moving the big Stuff? <br/> for example:</p>
                 <ul>
@@ -59,8 +60,8 @@ export const FurnishedQuestion = () => {
                 </ul>
                 </div>
                 <div className="entireHouse">
-                    <button className={`entireHouseBtn ${selectedAnswer === "entireHouse" ? "selected" : ""}`}
-                    onClick={() => handleAnswerSelection("The entire house.")}>Entire house contents.</button>
+                    <button type='submit' className={`entireHouseBtn ${selectedAnswer === "entireHouse" ? "selected" : ""}`}
+                    onClick={() => handleAnswerSelection("entireHouse")}>Entire house contents.</button>
                     <p className="entireHouseP">Are we moving everything? <br/> for example:</p>
                     <ul>
                     <li>Pre-packed boxes</li>
@@ -81,5 +82,6 @@ export const FurnishedQuestion = () => {
                 <Link to="/landing/questionFive">Next question</Link>
             </button>
         </div>
+        </body>
     )
 }

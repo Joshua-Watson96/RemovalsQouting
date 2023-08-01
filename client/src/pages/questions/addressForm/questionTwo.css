@@ -1,0 +1,95 @@
+/* QuestionTwo.css */
+.questionTwoBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 60px; /* Adjust the value based on your header height */
+    background-color: wheat;
+  }
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the container holding the address input and button */
+  .addressContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  input {
+    flex-grow: 1;
+    padding: 5px;
+  }
+  
+  /* Update the button styles */
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-grow: 1; /* This will make the buttons expand to take available space */
+    margin: 5px;
+  }
+  
+  /* Style for the "Back" and "Next Question" buttons at the bottom */
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .nextBtn,
+  .backBtn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-grow: 1; /* This will make the buttons expand to take available space */
+    margin: 5px;
+  }
+  
+  .nextBtn:hover,
+  .backBtn:hover {
+    background-color: #218838;
+  }
+  
+  .nextBtn a,
+  .backBtn a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  /* Media query to stack the "Back" and "Next Question" buttons on small screens */
+  @media (max-width: 480px) {
+    .buttonContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

@@ -10,7 +10,7 @@ import { DoubleStoreyQuestion } from "./pages/questions/accessQuestion/questionT
 import { FurnishedQuestion } from "./pages/questions/furnishedQuestion/questionFour";
 import { MoveDate } from "./pages/questions/moveDate/questionFive";
 import { QuoteSubmit } from "./pages/ending/endingPage"
-
+import "./index.css"
 
 export default function App() {
     return(
