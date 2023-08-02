@@ -33,23 +33,30 @@ export const FurnishedQuestion = () => {
     return(
         <body className="furnishedQuestionBody">
         <div>
+            <div className="header">
             <Headermain />
+            </div>
             <h1 className="title"> How furnished is your house?</h1>
             <h2 className="subTitle">Please select one of the following options.</h2>
-            <div className="container">
-                <div className="fewItems">
+            <div className="options">
+                <div className="fewItems option">
                 <button type='submit' 
                 className={`fewItemsBtn ${selectedAnswer === "fewItems" ? "selected" : ""}`}
                 onClick={() => handleAnswerSelection("fewItems")}>
-                Only a few items to be moved.</button>
-                <p className="fewItemsP">Are we just moving a few items?</p>
+                Moving a few items.</button>
+                <p className="optionText">Are we just moving a few items? <br/> for example:</p>
+                <ul>
+                    <li>
+                        Is there 10 or less items to be moved.
+                    </li>
+                </ul>
                     
                 </div>
 
-                <div className="bigStuff">
+                <div className="bigStuff option">
                 <button type='submit' className={`bigStuffBtn ${selectedAnswer} === "bigStuff" ? "selected" : ""}`}
                 onClick={() => handleAnswerSelection("bigStuff")}>Just the big furniture.</button>
-                <p className="bigStuffP">Are we just moving the big Stuff? <br/> for example:</p>
+                <p className="optionText">Are we just moving the big Stuff? <br/> for example:</p>
                 <ul>
                     <li>Dining table</li>
                     <li>Beds </li>
@@ -59,10 +66,10 @@ export const FurnishedQuestion = () => {
                     <li>+ Other big furniture</li>
                 </ul>
                 </div>
-                <div className="entireHouse">
+                <div className="entireHouse option">
                     <button type='submit' className={`entireHouseBtn ${selectedAnswer === "entireHouse" ? "selected" : ""}`}
                     onClick={() => handleAnswerSelection("entireHouse")}>Entire house contents.</button>
-                    <p className="entireHouseP">Are we moving everything? <br/> for example:</p>
+                    <p className="optionText"> Are we moving everything? <br/> for example:</p>
                     <ul>
                     <li>Pre-packed boxes</li>
                     <li>Loose bags/items</li>
@@ -78,9 +85,10 @@ export const FurnishedQuestion = () => {
                 
             </div>
             <p>You selected: {selectedAnswer} </p>
-            <button className="nextQ">
-                <Link to="/landing/questionFive">Next question</Link>
-            </button>
+            <Link to="/landing/questionThree"><button type='submit' className="backBtn">Back</button></Link>
+            <Link to="/landing/questionFive"><button type='submit' className="nextQ">
+                Next question
+            </button> </Link>
         </div>
         </body>
     )

@@ -1,29 +1,80 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .container > div {
-    flex: 1 0 200px; 
-    text-align: center;
-  }
-  
-  .container p {
-    margin-top: 10px;
-  }
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@200&display=swap');
 
-  .bigStuff {
-    background-color: orange;
-  }
-  
-  .entireHouse {
-    background-color: lightblue;
-  }
+.furnishedQuestionBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: wheat;
+  margin: 0;
+  font-family: 'Overpass', 'Serif';
+}
 
-  .fewItems {
-    background-color: wheat;
-  }
+.title {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.subTitle {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.option {
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.selected {
+  background-color: #0056b3;
+}
+
+.optionText {
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+  text-align: center;
+}
+
+li {
+  margin: 5px 0;
+}
+
+p {
+  margin: 0;
+}
+
+.nextQ {
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}

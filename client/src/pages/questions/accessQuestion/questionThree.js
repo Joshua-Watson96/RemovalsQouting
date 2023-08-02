@@ -124,90 +124,79 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
 
   return (
     <body className='questionThreeBody'>
-    <div>
-      <div className='header'>
+  <div>
+    <div className='header'>
       <Headermain />
-      </div>
-      <h1>What is the access like at each property?</h1>
-      <h2>(Is your property single/double storey, or an aparment building?)</h2>
-      <h3>Pick Up Access:</h3>
+    </div>
+    <h1>What is the access like at each property?</h1>
+    <h2>(Is your property single/double storey, or an apartment building?)</h2>
+    <h3>Pick Up Access:</h3>
+    <div>
+      <button type='submit' onClick={() => handlePickUpStoreyChange('single')}>Single storey</button>
+      <button type='submit' onClick={() => handlePickUpStoreyChange('double')}>Double storey</button>
+      <button type='submit' onClick={() => handlePickUpStoreyChange('other')}>Other</button>
+      <br />
+      <span className='selectedPickUp'> You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
+    </div>
+
+    {pickUpStorey === 'other' && (
       <div>
-        <button type='submit' onClick={() => handlePickUpStoreyChange('single')}>Single storey</button>
-        <button type='submit' onClick={() => handlePickUpStoreyChange('double')}>Double storey</button>
-        <button type='submit' onClick={() => handlePickUpStoreyChange('other')}>Other</button>
-        <br/>
-        <span className='selectedPickUp'> You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
+        <h4>If Other, select from the following options:</h4>
+        <button type='submit' onClick={() => handlePickUpStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
+        <button type='submit' onClick={() => handlePickUpStoreyChange('apartment_lift')}>Apartment building with a lift</button>
+        <button type='submit' onClick={() => handlePickUpStoreyChange('3_or_more_levels')}>3 or more levels</button>
+        <br />
+        <span className='selectedOther'>You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
       </div>
+    )}
 
-      {pickUpStorey === 'other' && (
-        <div>
-          <h4>If Other, select from the following options:</h4>
-          <button type='submit' onClick={() => handlePickUpStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
-          <button type='submit' onClick={() => handlePickUpStoreyChange('apartment_lift')}>Apartment building with a lift</button>
-          <button type='submit' onClick={() => handlePickUpStoreyChange('3_or_more_levels')}>3 or more levels</button>
-          <br/>
-          <span className='selectedOther'>You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
-        </div>
-      )}
+    <h3>Drop Off Access:</h3>
+    <div>
+      <button type='submit' onClick={() => handleDropOffStoreyChange('single')}>Single storey</button>
+      <button type='submit' onClick={() => handleDropOffStoreyChange('double')}>Double storey</button>
+      <button type='submit' onClick={() => handleDropOffStoreyChange('other')}>Other</button>
+      <br />
+      <span className='selectedDropOff'> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
+    </div>
 
-      <h3>Drop Off Access:</h3>
+    {dropOffStorey === 'other' && (
       <div>
-        <button type='submit' onClick={() => handleDropOffStoreyChange('single')}>Single storey</button>
-        <button type='submit' onClick={() => handleDropOffStoreyChange('double')}>Double storey</button>
-        <button type='submit' onClick={() => handleDropOffStoreyChange('other')}>Other </button>
-        <br/>
-        <span className='selectedDropOff'> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
+        <h4>If Other, select from the following options:</h4>
+        <button type='submit' onClick={() => handleDropOffStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
+        <button type='submit' onClick={() => handleDropOffStoreyChange('apartment_lift')}>Apartment building with a lift</button>
+        <button type='submit' onClick={() => handleDropOffStoreyChange('3_or_more_levels')}>3 or more levels</button>
+        <br />
+        <span> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
       </div>
+    )}
 
-      {dropOffStorey === 'other' && (
-        <div>
-          <h4>If Other, select from the following options:</h4>
-          <button type='submit' onClick={() => handleDropOffStoreyChange('apartment_stairs')}>Apartment building with stairs</button>
-          <button type='submit'onClick={() => handleDropOffStoreyChange('apartment_lift')}>Apartment building with a lift</button>
-          <button type='submit' onClick={() => handleDropOffStoreyChange('3_or_more_levels')}>3 or more levels</button>
-          <br/>
-          <span> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
-        </div>
-      )}
+    <h3>Can the truck park in the driveway?</h3>
+    <h4>(Are there any low-hanging tree branches, powerlines, etc.)</h4>
+    <div>
+      <button type='submit'  className={canTruckParkInDriveway === 'yes' ? 'selectedOption' : ''} onClick={() => handleCanTruckParkChange('yes')}>
+        Yes
+      </button>
+      <button type='submit' className={canTruckParkInDriveway === 'no' ? 'selectedOption' : ''} onClick={() => handleCanTruckParkChange('no')}>
+        No
+      </button>
+      <br />
+      <span>You selected: {getSelectedAnswer('canTruckParkInDriveway', canTruckParkInDriveway)}</span>
+    </div>
 
-      <h3>Can the truck park in the driveway?</h3>
-      <h4>(Are there any low-hanging tree branches, powerlines etc)</h4>
+    {canTruckParkInDriveway === 'no' && (
       <div>
-        <label>
-          Yes
-          <input
-            type="radio"
-            value="yes"
-            checked={canTruckParkInDriveway === 'yes'}
-            onChange={() => handleCanTruckParkChange('yes')}
-          />
-        </label>
-        <label>
-          No
-          <input
-            type="radio"
-            value="no"
-            checked={canTruckParkInDriveway === 'no'}
-            onChange={() => handleCanTruckParkChange('no')}
-          />
-        </label>
-        <br/>
-        <span>You selected: {getSelectedAnswer('canTruckParkInDriveway', canTruckParkInDriveway)}</span>
+        <h4>If no, please select one of the following options:</h4>
+        <button type='submit' onClick={() => handleCanTruckParkChange('truck_on_street')}>The truck can park on the street.</button> <br />
+        <button type='submit' onClick={() => handleCanTruckParkChange('truck_15_30m_away')}>Will the truck need to park 15-30m away from the property?</button> <br />
+        <button type='submit' onClick={() => handleCanTruckParkChange('truck_30m_away')}>Will the truck need to park more than 30m away from the front door?</button>
       </div>
-
-      {canTruckParkInDriveway === 'no' && (
-        <div>
-          <h4>If no, please select one of the following options:</h4>
-          <button type='submit' onClick={() => handleCanTruckParkChange('truck_on_street')}>The truck can park on the street.</button> <br/>
-          <button type='submit' onClick={() => handleCanTruckParkChange('truck_15_30m_away')}>Will the truck need to park 15-30m away from the property?</button> <br/>
-          <button type='submit' onClick={() => handleCanTruckParkChange('truck_30m_away')}>Will the truck need to park more than 30m away from the front door?</button>
-        </div>
-      )}
-      <div>
+    )}
+    <div>
       <Link to="/landing/questionTwo"><button type='submit'> Back</button></Link>
       <Link to="/landing/questionFour"><button type='submit'>  Next Question </button></Link>
-      </div>
     </div>
-    </body>
+  </div>
+</body>
+
   );
 };

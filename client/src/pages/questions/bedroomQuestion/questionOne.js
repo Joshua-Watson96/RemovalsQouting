@@ -23,7 +23,7 @@ export const BedroomQuestion = () => {
       case "4":
         bedroomsTotal = bedroomsTotal + 2.5;
         break;
-      case "5+":
+      case "5":
         bedroomsTotal = bedroomsTotal + 3;
         break;
       default:
@@ -33,7 +33,7 @@ export const BedroomQuestion = () => {
   };
 
   const renderAnswerButtons = () => {
-    const answers = ["1", "2", "3", "4", "5+"];
+    const answers = ["1", "2", "3", "4", "5"];
     return answers.map((answer) => (
       <button type="submit"
         key={answer}

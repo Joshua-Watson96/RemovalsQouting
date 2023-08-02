@@ -1,4 +1,6 @@
 /* QuestionThree.css */
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@200&display=swap');
+
 .questionThreeBody {
   display: flex;
   flex-direction: column;
@@ -8,6 +10,7 @@
   margin: 0;
   padding-top: 60px; 
   background-color: wheat;
+  font-family: 'Overpass', 'serif';
 }
 
 .header {

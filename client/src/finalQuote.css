@@ -1,8 +1,9 @@
 /* styles.css */
 @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@200&display=swap');
 
-.moveDateBody {
+.finalQuoteBody {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -17,39 +18,20 @@
     width: 100%;
     text-align: center;
     padding: 20px;
-    background-color: wheat;
   }
   
-  .header {
-    margin-bottom: 20px;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
   }
   
-  .question {
-    margin-bottom: 20px;
+  li {
+    margin-bottom: 10px;
   }
   
-  .movingDate,
-  .settlementDate {
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
-  }
-  
-  .settlementTime {
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  .buttonContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px; 
-    margin-top: 20px;
-  }
-  
-  .backBtn,
-  .nextQ {
+  button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #007bff;
@@ -57,10 +39,16 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin: 5px;
   }
   
   a {
     text-decoration: none;
     color: white;
+  }
+  
+  p {
+    margin-top: 20px;
+    line-height: 1.5;
   }
   

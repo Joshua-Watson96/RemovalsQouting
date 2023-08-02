@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
+import "./finalQuote.css"
 
 export const QuoteReview = () => {
   // grabs all values from the user input from the local storage
@@ -26,16 +27,16 @@ export const QuoteReview = () => {
   // grabs the lowerHours and multiplies by 195.
   let lowerTotal = (lowerHours) * 195;
   return (
-    <div>
+    <body className="finalQuoteBody">
       <div>
         <h1>
-          Here is a review of the quote.
+          Here is a review and estimate of your quote.
         </h1>
       </div>
       <ul>
+      <li>Number of Bedrooms: {bedroomsTotal}</li>
         <li>Pick Up Address: {pickUpAddress}</li>
         <li>Drop Off Address:{dropOffAddress}</li>
-        <li>Number of Bedrroms: {bedroomsTotal}</li>
         <li>Preferred moving date: {movingDate}</li>
         <li>Settlement Date: {settlementDate}</li>
         <li>Settlement Time: {settlementTime}</li>
@@ -43,21 +44,11 @@ export const QuoteReview = () => {
         <li>The estimated cost is between: ${lowerTotal} - ${higherTotal} </li>
       </ul>
       <div>
-        <button><Link to="/landing/questionFive">Back</Link></button>
-        <button><Link to="/landing">Back to start</Link></button>
-        <p>If you would like to send this quote through, <br/> please click submit, and someone will be in touch with <br/> you ASAP. Thank you.</p>
-        <button>Submit</button>
+        <button type="submit"><Link to="/landing/questionFive">Back</Link></button>
+        <button type="submit"><Link to="/landing">Back to start</Link></button>
+        <p>If you would like to send this quote through, <br/> please click 'submit', and someone will be in touch with <br/> you ASAP. Thank you.</p>
+        <button type="submit">Submit</button>
       </div>
-      <div className="disclaimer">
-        <h2>
-          DISCLAIMER:
-        </h2>
-        <p>
-          Please use this quote as a rough estimate/guide only. <br/>
-          There are a lot of different variables that could <br/>
-          make the job quicker, or slower.
-        </p>
-      </div>
-    </div>
+  </body>
   );
 };
