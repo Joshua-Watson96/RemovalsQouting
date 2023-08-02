@@ -14,7 +14,7 @@ export const QuoteReview = () => {
   let furnishedTotal = +localStorage.getItem("furnishedTotal");
   let movingDate = (localStorage.getItem("movingDate"));
   let settlementDate = localStorage.getItem("settlementDate");
-  let settlementTime = localStorage.getItem("settlementTime")
+  let settlementTime = localStorage.getItem("selectedTime")
 
   
   // Page displays 2 hour window for job length and job cost

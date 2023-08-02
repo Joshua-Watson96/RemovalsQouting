@@ -7,13 +7,13 @@ import "./questionFive.css";
 export const MoveDate = () => {
   const [movingDate, setMovingDate] = useState("");
   const [settlementDate, setSettlementDate] = useState("");
-  const [settlementTime, setSettlementTime] = useState("");
+  const [selectedTime, setSettlementTime] = useState("");
 
   useEffect(() => {
     localStorage.setItem("movingDate", movingDate);
     localStorage.setItem("settlementDate", settlementDate);
-    localStorage.setItem("settlementTime", settlementTime);
-  }, [movingDate, settlementDate, settlementTime]);
+    localStorage.setItem("selectedTime", selectedTime);
+  }, [movingDate, settlementDate, selectedTime]);
 
   return (
     <body class="moveDateBody">
@@ -50,7 +50,7 @@ export const MoveDate = () => {
           <h2 class="settlementTime">Please provide settlement time.</h2>
           <p>(Please leave blank if you do not know settlement time)</p>
           <TimePicker
-            value={settlementTime}
+            value={selectedTime}
             onChange={(time) => setSettlementTime(time)}
           />
         </div>

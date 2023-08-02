@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const TimePicker = () => {
   // State to store the selected time
   const [selectedTime, setSelectedTime] = useState('');
 
+  useEffect(() => {
+    // Save selectedTime to localStorage when it changes
+    localStorage.setItem('selectedTime', selectedTime);
+  }, [selectedTime]); 
 
   const handleTimeChange = (event) => {
     setSelectedTime(event.target.value);
