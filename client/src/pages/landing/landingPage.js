@@ -19,7 +19,6 @@ export const LandingPage = () => {
       <Headermain />
       <body className="landingBody">
         <div>
-          <h1> DISCLAIMER:</h1>
           {!showDisclaimer ? (
             <p>
               Please use this quote as a rough estimate/guide only. <br />

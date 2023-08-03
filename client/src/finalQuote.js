@@ -34,20 +34,20 @@ export const QuoteReview = () => {
         </h1>
       </div>
       <ul>
-      <li>Number of Bedrooms: {bedroomsTotal}</li>
-        <li>Pick Up Address: {pickUpAddress}</li>
-        <li>Drop Off Address:{dropOffAddress}</li>
-        <li>Preferred moving date: {movingDate}</li>
-        <li>Settlement Date: {settlementDate}</li>
-        <li>Settlement Time: {settlementTime}</li>
-        <li>The job will take between: {lowerHours} - {higherHours} hours.</li>
-        <li>The estimated cost is between: ${lowerTotal} - ${higherTotal} </li>
+      <li>Number of Bedrooms: <strong>{bedroomsTotal}</strong></li>
+        <li>Pick Up Address: <strong>{pickUpAddress}</strong></li>
+        <li>Drop Off Address:<strong>{dropOffAddress}</strong></li>
+        <li>Preferred moving date: <strong>{movingDate}</strong></li>
+        <li>Settlement Date: <strong>{settlementDate}</strong></li>
+        <li>Settlement Time: <strong>{settlementTime}</strong></li>
+        <li>The job will take between: <strong>{lowerHours}</strong> - <strong>{higherHours}</strong> hours.</li>
+        <li>The estimated cost is between: <strong>${lowerTotal}</strong> - <strong>${higherTotal}</strong> </li>
       </ul>
       <div>
         <button type="submit"><Link to="/landing/questionFive">Back</Link></button>
-        <button type="submit"><Link to="/landing">Back to start</Link></button>
-        <p>If you would like to send this quote through, <br/> please click 'submit', and someone will be in touch with <br/> you ASAP. Thank you.</p>
-        <button type="submit">Submit</button>
+        <button type="submit"><Link to="/landing">Do another quote</Link></button>
+        <p>If you would like to send this quote through, <br/> please click 'Send', and someone will be in touch with <br/> you ASAP. Thank you.</p>
+        <button className="send" type="submit">Send</button>
       </div>
   </body>
   );

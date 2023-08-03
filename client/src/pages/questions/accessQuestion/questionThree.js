@@ -107,12 +107,12 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
           case 'truck_15_30m_away':
             accessTotal=(accessTotal + 1 ) 
             localStorage.setItem("accessTotal", accessTotal)
-            return 'Will the truck need to park 15-30m away from the property?';
+            return 'The truck will need to park 15-30m away from the property.';
           case 'truck_30m_away':
             accessTotal=(accessTotal + 1.5 ) 
             localStorage.setItem("accessTotal", accessTotal)
             console.log(accessTotal);
-            return 'Will the truck need to park more than 30m away from the front door?';
+            return 'The truck will need to park more than 30m away from the property.';
           default:
             return '';
         }
@@ -136,6 +136,7 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       <button type='submit' onClick={() => handlePickUpStoreyChange('double')}>Double storey</button>
       <button type='submit' onClick={() => handlePickUpStoreyChange('other')}>Other</button>
       <br />
+      <br/>
       <span className='selectedPickUp'> You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
     </div>
 
@@ -149,13 +150,15 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
         <span className='selectedOther'>You selected: {getSelectedAnswer('pickUpStorey', pickUpStorey)}</span>
       </div>
     )}
+    <br/>
 
     <h3>Drop Off Access:</h3>
     <div>
       <button type='submit' onClick={() => handleDropOffStoreyChange('single')}>Single storey</button>
       <button type='submit' onClick={() => handleDropOffStoreyChange('double')}>Double storey</button>
       <button type='submit' onClick={() => handleDropOffStoreyChange('other')}>Other</button>
-      <br />
+      <br/>
+      <br/>
       <span className='selectedDropOff'> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
     </div>
 
@@ -169,7 +172,8 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
         <span> You selected: {getSelectedAnswer('dropOffStorey', dropOffStorey)}</span>
       </div>
     )}
-
+    <br/>
+    <br/>
     <h3>Can the truck park in the driveway?</h3>
     <h4>(Are there any low-hanging tree branches, powerlines, etc.)</h4>
     <div>
@@ -187,8 +191,8 @@ export const DoubleStoreyQuestion = ({ onNextQuestion }) => {
       <div>
         <h4>If no, please select one of the following options:</h4>
         <button type='submit' onClick={() => handleCanTruckParkChange('truck_on_street')}>The truck can park on the street.</button> <br />
-        <button type='submit' onClick={() => handleCanTruckParkChange('truck_15_30m_away')}>Will the truck need to park 15-30m away from the property?</button> <br />
-        <button type='submit' onClick={() => handleCanTruckParkChange('truck_30m_away')}>Will the truck need to park more than 30m away from the front door?</button>
+        <button type='submit' onClick={() => handleCanTruckParkChange('truck_15_30m_away')}> The truck will need to park 15-30m away from the property.</button> <br />
+        <button type='submit' onClick={() => handleCanTruckParkChange('truck_30m_away')}> The truck will need to park more than 30m away from the property.</button>
       </div>
     )}
     <div>

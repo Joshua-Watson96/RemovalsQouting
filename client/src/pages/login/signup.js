@@ -79,7 +79,7 @@ export function Signup(props) {
           />
         </div>
         <div className="flex-row flex-end">
-          <button type="submit">Sign up!</button> 
+          <button type="submit">Sign up!</button>
           <br/>
           <h3>Already have an account?</h3>
          <Link to="/"><button  type="submit"> Login here</button></Link>

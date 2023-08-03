@@ -4,6 +4,15 @@ import { TimePicker } from "./timePicker";
 import { Link } from "react-router-dom";
 import "./questionFive.css";
 
+// function formatDate(dateString) {
+//   const date = new Date(dateString);
+//   const day = date.getDate();
+//   const month = date.getMonth() + 1;
+//   const year = date.getFullYear();
+
+//   return `${day}/${month}/${year}`;
+// }
+
 export const MoveDate = () => {
   const [movingDate, setMovingDate] = useState("");
   const [settlementDate, setSettlementDate] = useState("");
@@ -14,6 +23,9 @@ export const MoveDate = () => {
     localStorage.setItem("settlementDate", settlementDate);
     localStorage.setItem("selectedTime", selectedTime);
   }, [movingDate, settlementDate, selectedTime]);
+
+  // const formattedMovingDate = formatDate(movingDate);
+  // const formattedSettlementDate = formatDate(settlementDate);
 
   return (
     <body class="moveDateBody">
@@ -31,6 +43,7 @@ export const MoveDate = () => {
             onChange={(e) => setMovingDate(e.target.value)}
             required
           />
+          
         </div>
 
         <div class="question">
@@ -44,6 +57,7 @@ export const MoveDate = () => {
             value={settlementDate}
             onChange={(e) => setSettlementDate(e.target.value)}
           />
+          
         </div>
 
         <div class="question">
