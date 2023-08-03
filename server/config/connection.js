@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uri = process.env.MONGODB_PASS || 'mongodb://127.0.0.1:27017/removalsquote' ;
+const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/removalsquote' ;
 
 mongoose.connect(uri);
 
