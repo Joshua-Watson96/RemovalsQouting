@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cc454895.css",
+    "main.js": "/static/js/main.004fca0a.js",
+    "static/media/wmlogo.PNG": "/static/media/wmlogo.3f04ff33884cbef27c28.PNG",
+    "index.html": "/index.html",
+    "main.cc454895.css.map": "/static/css/main.cc454895.css.map",
+    "main.004fca0a.js.map": "/static/js/main.004fca0a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc454895.css",
+    "static/js/main.004fca0a.js"
+  ]
+}
